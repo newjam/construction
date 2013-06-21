@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>
+      Please don't mind the dust!
+    </title>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+    <script type='text/javascript'>
+        move = function(i){
+            w = $(this).width()
+            h = $(this).height()
+            
+            p = $(this).position()
+            
+            cx = p.left
+            cy = p.right
+            
+            nx = Math.random() * (window.innerWidth - w)
+            ny = Math.random() * (window.innerHeight - h)
+            
+            d = Math.sqrt(Math.pow(cx - nx, 2.0) + Math.pow(cy - ny, 2.0))
+            f = Math.sqrt(Math.pow(window.innerWidth - w, 2.0) + Math.pow(window.innerHeight - h, 2.0))
+            
+            $(this).animate({right:nx, top:ny}, 1000.0, function(){$(this).each(move)})
+        }
+        
+        init = function(i){
+            w = $(this).width()
+            h = $(this).height()
+            
+            x = Math.random() * (window.innerWidth - w)
+            y = Math.random() * (window.innerHeight - h)
+            
+            $(this).css({right:x, top:y})
+        }
+    
+        $(function(){
+            $('img').each(init)
+            $('img').each(move)
+        })
+    </script>
+    <style type='text/css'>
+        img {
+            position: absolute;
+        }
+    </style>
+  </head>
+  <body>
+    <img src='1.gif'>
+    <img src='2.gif'>
+    <img src='3.gif'>
+    <img src='4.gif'>
+    <img src='5.gif'>
+    <img src='6.gif'>
+    <img src='7.gif'>
+  </body>
+</html>
